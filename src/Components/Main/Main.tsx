@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Loader } from '../Loader/Loader';
-import { Preference } from '../Preference/Preference';
-import { Scrollbar } from '../Scrollbar/Scrollbar';
+import Form from '../Form/Form';
+import Loader from '../Loader/Loader';
+import Preference from '../Preference/Preference';
+import Scrollbar from '../Scrollbar/Scrollbar';
 import { TypeBrowser } from '../../@types/typeBrowser';
 import { TypeDevice } from '../../@types/typeDevice';
 import { Language } from '../../@types/typeLanguage';
@@ -95,6 +96,10 @@ class Main extends React.Component<{}, States> {
         this.setState({ isLoading: false, percentage: 100 });
 	}
 
+	handleSubmit(values: any) {
+		console.log(values);
+	};
+
 	render() {
 		return (
 			<div 
@@ -112,18 +117,7 @@ class Main extends React.Component<{}, States> {
 							changeLanguage={(language: Language) => this.setState({ language })}
 						/>
 					</header>
-					<form action="/action_page.php">
-						<input type="text" pattern="[A-Za-z]" name="fname"/>
-						<input type="text" pattern="[A-Za-z]" name="fname"/>
-					{/* First name: <input type="text" pattern="[A-Za-z]" name="fname"><br>
-					Last name: <input type="text" pattern="[A-Za-z]" name="lname"><br>
-						<input type="submit" value="Submit"> */}
-					</form>
-					{/* {Array.apply(null, { length: 50 }).map((element: any, index: number) => (
-						<span className="busterCards" key={index} style={{display: 'block'}}>
-							♦
-						</span>
-					))} */}
+					<Form language={this.state.language}/>
 				</Scrollbar>
 			</div>
 		);

@@ -13,7 +13,7 @@ interface States {
     scroll: number;
 }
 
-export class Scrollbar extends React.Component<Props, States> {
+export default class Scrollbar extends React.Component<Props, States> {
 
     constructor(props: any) {
         super(props);

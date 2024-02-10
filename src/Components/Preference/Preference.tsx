@@ -12,7 +12,7 @@ interface States {
     showList: boolean;
 }
 
-export class Preference extends React.Component<Props, States> {
+export default class Preference extends React.Component<Props, States> {
 
     state = {
         showList: false

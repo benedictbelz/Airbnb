@@ -12,7 +12,7 @@ interface States {
     isVisible: boolean;
 }
 
-export class Loader extends React.Component<Props, States> {
+export default class Loader extends React.Component<Props, States> {
 
     state: States = {
         isTransition: true,

@@ -12,6 +12,11 @@
   resolved "https://registry.yarnpkg.com/@formiz/core/-/core-2.2.3.tgz#8188720633d98b3ffcfa376de80e3da81905c88d"
   integrity sha512-PUM3MCRPTdbUTXeIN4OD+39NgniT/ogCPLj7qO93a8UNYD0OVkNZIdYz7Aj54qFA93BenADkaZeY5Oa0m0fJiA==
 
+"@formiz/validations@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@formiz/validations/-/validations-2.0.1.tgz#268afba7c5f2bf712ede3742874ac8c93c863724"
+  integrity sha512-NZGluw3iWt7zw3oTiOwnttg7DCgB1SR0AMWVpdTYsaXDS54HwukwteaUqxii/FeGNliuRLYxtawnhMwa8YIhyA==
+
 "@jridgewell/gen-mapping@^0.3.0":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"
