@@ -1,0 +1,51 @@
+@import '../../General/Variables.scss';
+
+html,
+body {
+    position: fixed;
+    overflow: hidden;
+
+    #main {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        &.desktop {
+            #form {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+            }
+    
+            #form > .content {
+                overflow-y: auto;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    
+        &.mobile {
+            #form {
+                position: absolute;
+                overflow-y: auto;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .content {
+            box-sizing: border-box;
+            padding: $spacing-l;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            > p {
+                font-size: $font-size-xl;
+            }
+        }
+    }    
+}

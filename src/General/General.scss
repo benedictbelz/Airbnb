@@ -1,0 +1,87 @@
+@import './Fonts.scss';
+@import './Variables.scss';
+
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+html,
+body {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: $color-black;
+    font-family: 'Web', sans-serif;
+    font-weight: $font-weight-thin;
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: $color-white;
+    text-decoration: none;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: $font-size-s;
+    font-weight: $font-weight-regular;
+}
+
+#main.desktop .underline {
+    cursor: pointer;
+    position: relative;
+
+    &:hover::after {
+        transform: scaleX(1);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -$border-underline;
+        height: $border-underline;
+        width: 100%;
+        background-color: $color-black;
+        transform-origin: left;
+        transition: transform $transition-s ease;
+        transform: scaleX(0);
+        border-radius: $border-radius-s;
+    }
+
+    &.black::after {
+        background-color: $color-black;
+    }
+
+    &.white::after {
+        background-color: $color-white;
+    }
+}

@@ -1,0 +1,42 @@
+@import '../../General/Variables.scss';
+
+#main.desktop {
+    .scrollbar {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        transition: transform $transition-l ease;
+        display: flex;
+        justify-content: flex-end;
+    
+        div {
+            height: 100%;
+            width: $spacing-xs;
+            transform: scale(0);
+        }
+    
+        &.black div {
+            background-color: $color-black;
+        }
+    
+        &.white div {
+            background-color: $color-white;
+        }
+    }
+    
+    #form>.content {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    html::-webkit-scrollbar,
+    #form>.content::-webkit-scrollbar {
+        display: none;
+        background-color: transparent;
+        height: 0;
+        width: 0;
+    }
+}

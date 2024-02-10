@@ -1,0 +1,66 @@
+@import '../../General/Variables.scss';
+
+.loader {
+    position: absolute;
+    pointer-events: none;
+    z-index: 500;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+
+    #circle {
+        box-sizing: border-box;
+        position: absolute;
+        height: $spacing-xl;
+        width: $spacing-xl;
+        border-radius: 50%;
+        animation-name: circle;
+        animation-duration: $transition-l;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+
+        @keyframes circle {
+            0% {
+                transform: rotateZ(0deg);
+            }
+            100% {
+                transform: rotateZ(360deg);
+            }
+        }
+    }
+
+    &.show {
+        opacity: 1;
+    }
+
+    &.transition {
+        transition: opacity $transition-m ease;
+    }
+
+    &.black {
+        color: $color-white;
+        background-color: $color-black;
+
+        #circle {
+            border-top: $border-circle solid $color-white;
+            border-right: $border-circle solid $color-white;
+            border-bottom: $border-circle solid $color-white;
+            border-left: $border-circle solid transparent;
+        }
+    }
+
+    &.white {
+        color: $color-black;
+        background-color: $color-white;
+
+        #circle {
+            border-top: $border-circle solid $color-black;
+            border-right: $border-circle solid $color-black;
+            border-bottom: $border-circle solid $color-black;
+            border-left: $border-circle solid transparent;
+        }
+    }
+}
