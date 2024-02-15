@@ -30,6 +30,9 @@ form {
 
         input,
         select {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
             box-sizing: border-box;
             width: 100%;
             height: $spacing-l;
@@ -48,6 +51,20 @@ form {
             }
         }
 
+        input::-webkit-date-and-time-value {
+            text-align: left;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active  {
+            background-color: $color-white !important;
+            background-clip: content-box !important;
+            -webkit-box-shadow: 0 0 0 1000px $color-white inset !important;
+            -webkit-text-fill-color: $color-black-input !important;
+        }
+
         select {
             appearance: none;
             line-height: inherit;
@@ -60,7 +77,6 @@ form {
             font-size: $font-size-s;
             color: $color-red;
             padding: 0 $spacing-s;
-            width: max-content;
             background-color: $color-white;
         }
 

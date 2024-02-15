@@ -17,32 +17,6 @@ body {
             height: 100%;
             margin: auto;
 
-            #logo {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-top: $spacing-l;
-                margin-bottom: $spacing-l;
-                height: 250px;
-                width: 100%;
-    
-                img {
-                    height: 100%;
-                }
-            }
-    
-            header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-direction: row;
-                margin-bottom: $spacing-l;
-    
-                > p {
-                    font-size: $font-size-xl;
-                }
-            }
-
             #error {
                 position: absolute;
                 top: 0;
@@ -57,6 +31,10 @@ body {
                 gap: $spacing-m;
                 font-size: $font-size-l;
                 background-color: $color-white;
+
+                span {
+                    text-align: center;
+                }
 
                 button {
                     width: 200px;
@@ -91,10 +69,45 @@ body {
                 }
             }
         }
-    }
+
+        #validation {
+            #logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: $spacing-l;
+                margin-bottom: $spacing-l;
+                height: 250px;
+                width: 100%;
     
+                img {
+                    height: 100%;
+                }
+            }
+    
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: row;
+                margin-bottom: $spacing-l;
+    
+                > p {
+                    font-size: $font-size-xl;
+                }
+            }
+        }
+
+        &.error,
+        &.success {
+            #validation {
+                display: none;
+            }
+        }
+    }
+
     @media (max-width: 600px) {
-        #airbnb {
+        #airbnb #validation {
             header {
                 flex-direction: column-reverse !important;
                 gap: $spacing-l;

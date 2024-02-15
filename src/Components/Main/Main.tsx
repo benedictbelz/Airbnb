@@ -112,6 +112,9 @@ class Main extends React.Component<{}, States> {
 				id='main'
 				className={[
 					this.state.currentDevice === 'Desktop' ? 'desktop' : 'mobile',
+					this.state.status === 'Error' ? 'error' : '',
+					this.state.status === 'Success' ? 'success' : '',
+					this.state.status === 'Validation' ? 'validation' : '',
 				].filter(x => x).join(' ')}
 			>
 				<Loader color='White' isLoading={this.state.isLoading} percentage={this.state.percentage}/>
@@ -129,21 +132,23 @@ class Main extends React.Component<{}, States> {
 							<span>{getLanguage(this.state.language, 'successInfo')}</span>
 						</div>
 					)}
-					<div id='logo'>
-						<img src='assets/logo/logo.png'/>
-					</div>
-					<header>
-						<p>{getLanguage(this.state.language, 'title')}</p>
-						<Preference
+					<div id='validation'>
+						<div id='logo'>
+							<img src='assets/logo/logo.png'/>
+						</div>
+						<header>
+							<p>{getLanguage(this.state.language, 'title')}</p>
+							<Preference
+								language={this.state.language}
+								changeLanguage={(language: Language) => this.setState({ language })}
+							/>
+						</header>
+						<Form
+							handleError={() => this.handleError()}
+							handleSuccess={() => this.handleSuccess()}
 							language={this.state.language}
-							changeLanguage={(language: Language) => this.setState({ language })}
 						/>
-					</header>
-					<Form
-						handleError={() => this.handleError()}
-						handleSuccess={() => this.handleSuccess()}
-						language={this.state.language}
-					/>
+					</div>
 				</Scrollbar>
 			</div>
 		);

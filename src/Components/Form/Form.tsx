@@ -355,6 +355,7 @@ export default class Form extends React.Component<Props, States> {
                                     type={fieldProps.type}
                                     value={fieldProps.value}
                                     onChange={event => this.changeField(fieldName, event.target.value)}
+                                    {...(fieldProps.type === 'number' ? { pattern: '\\d*' } : {})}
                                 />
                             ) : (
                                 <select onChange={(event) => this.changeField(fieldName, event.target.value)}>
