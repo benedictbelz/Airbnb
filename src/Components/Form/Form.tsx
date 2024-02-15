@@ -198,10 +198,6 @@ export default class Form extends React.Component<Props, States> {
         // ASSIGN VALUE
         const form: any = Object.assign({}, this.state.form);
         form[fieldName].value = value;
-        // AUTO-FILL ADDRESS COUNTRY
-        if (fieldName === 'nationality' && form['addressCountry'].value === '') {
-            form['addressCountry'].value = value;
-        }
         // GET VALIDATION
         const validation = form[fieldName].validation as Validation;
         // VALIDATE FIELD
@@ -218,7 +214,7 @@ export default class Form extends React.Component<Props, States> {
         if (value === '') {
             return true;
         } else if (method === 'isAlphabet') {
-            return (/^[\p{L}\p{M}]+$/u).test(value);
+            return (/^[\p{L}\p{M}|-]+$/u).test(value);
         } else if (method === 'isCountry') {
             return value !== '';
         } else if (method === 'isDate') {
@@ -236,7 +232,7 @@ export default class Form extends React.Component<Props, States> {
         } else if (method === 'isPostCode') {
             return (/^[a-z0-9][a-z0-9\- ]{0,10}[a-z0-9]$/g).test(value); 
         } else if (method === 'isStreet') {
-            return (/^[\p{L}\p{M}|-]+\.?$/u).test(value);
+            return (/^[\p{L}\p{M}][\p{L}\p{M}\-\s]+\.?$/u).test(value);
         } else {
             return true;
         }
@@ -302,23 +298,21 @@ export default class Form extends React.Component<Props, States> {
             const params = {
                 to_name: 'Benedict',
                 from_name: `${this.state.form.firstName.value.trim()} ${this.state.form.lastName.value.trim()}`,
-                message: `
-                    <strong>Vorname:</strong> ${this.state.form.firstName.value.trim()}
-                    <strong>Nachname:</strong> ${this.state.form.lastName.value.trim()}
-                    <strong>Geburtsdatum:</strong> ${this.state.form.dateOfBirth.value.trim()}
-                    <strong>Datum der Anreise:</strong> ${this.state.form.dateOfArrival.value.trim()}
-                    <strong>Datum der Abreise:</strong> ${this.state.form.dateOfDepature.value.trim()}
-                    <strong>Staatsangehögkeit:</strong> ${this.state.form.nationality.value.trim()}
-                    <strong>Strasse:</strong> ${this.state.form.addressStreet.value.trim()}
-                    <strong>Hausnummer:</strong> ${this.state.form.addressHouseNumber.value.trim()}
-                    <strong>Postleitzahl:</strong> ${this.state.form.addressPostCode.value.trim()}
-                    <strong>Stadt:</strong> ${this.state.form.addressCity.value.trim()}
-                    <strong>Land:</strong> ${this.state.form.addressCountry.value.trim()}
-                    <strong>Ausweisnummer:</strong> ${this.state.form.passportNumber.value.trim()}
-                    <strong>Anzahl der Gäste:</strong> ${this.state.form.numberOfGuests.value.trim()}
-                    <strong>Telefonnummer:</strong> ${this.state.form.guestPhone.value ? this.state.form.guestPhone.value.trim() : 'keine Angabe'}
-                    <strong>E-Mail:</strong> ${this.state.form.guestEmail.value ? this.state.form.guestEmail.value.trim() : 'keine Angabe'}
-                `.trim()
+                first_name: `${this.state.form.firstName.value.trim()}`,
+                last_name: `${this.state.form.lastName.value.trim()}`,
+                date_of_birth: `${this.state.form.dateOfBirth.value.trim()}`,
+                date_of_arrival: `${this.state.form.dateOfArrival.value.trim()}`,
+                date_of_departure: `${this.state.form.dateOfDepature.value.trim()}`,
+                nationality: `${this.state.form.nationality.value.trim()}`,
+                address_street: `${this.state.form.addressStreet.value.trim()}`,
+                address_house_number: `${this.state.form.addressHouseNumber.value.trim()}`,
+                address_post_code: `${this.state.form.addressPostCode.value.trim()}`,
+                address_city: `${this.state.form.addressCity.value.trim()}`,
+                address_country: `${this.state.form.addressCountry.value.trim()}`,
+                passport_number: `${this.state.form.passportNumber.value.trim()}`,
+                number_of_guests: `${this.state.form.numberOfGuests.value.trim()}`,
+                guest_phone: `${this.state.form.guestPhone.value ? this.state.form.guestPhone.value.trim() : 'keine Angabe'}`,
+                guest_email: `${this.state.form.guestEmail.value ? this.state.form.guestEmail.value.trim() : 'keine Angabe'}`,
             }
             emailjs.send('service_p34hlgj', 'template_5ngkmwb', params)
                 .then(
