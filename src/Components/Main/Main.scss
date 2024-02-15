@@ -85,7 +85,7 @@ body {
                 }
             }
     
-            header {
+            #header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -108,7 +108,7 @@ body {
 
     @media (max-width: 600px) {
         #airbnb #validation {
-            header {
+            #header {
                 flex-direction: column-reverse !important;
                 gap: $spacing-l;
                 width: 100%;

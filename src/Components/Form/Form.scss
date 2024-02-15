@@ -117,6 +117,19 @@ form {
         }
     }
 
+    #information {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: $spacing-m;
+
+        .title {
+            display: block;
+            font-size: $font-size-l;
+        }
+    }
+
     button {
         position: relative;
         width: 100%;

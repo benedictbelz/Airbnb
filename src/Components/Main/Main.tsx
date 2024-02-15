@@ -136,13 +136,13 @@ class Main extends React.Component<{}, States> {
 						<div id='logo'>
 							<img src='assets/logo/logo.png'/>
 						</div>
-						<header>
+						<div id='header'>
 							<p>{getLanguage(this.state.language, 'title')}</p>
 							<Preference
 								language={this.state.language}
 								changeLanguage={(language: Language) => this.setState({ language })}
 							/>
-						</header>
+						</div>
 						<Form
 							handleError={() => this.handleError()}
 							handleSuccess={() => this.handleSuccess()}

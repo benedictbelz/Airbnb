@@ -197,11 +197,15 @@ export default class Form extends React.Component<Props, States> {
     changeField(fieldName: string, value: string) {
         // ASSIGN VALUE
         const form: any = Object.assign({}, this.state.form);
-        form[fieldName].value = value.trim();
+        form[fieldName].value = value;
+        // AUTO-FILL ADDRESS COUNTRY
+        if (fieldName === 'nationality' && form['addressCountry'].value === '') {
+            form['addressCountry'].value = value;
+        }
         // GET VALIDATION
         const validation = form[fieldName].validation as Validation;
         // VALIDATE FIELD
-        if (validation && !this.validateField(validation, value.trim())) {
+        if (validation && !this.validateField(validation, value)) {
             form[fieldName].showWarning = true;
         } else {
             form[fieldName].showWarning = false;
@@ -297,23 +301,23 @@ export default class Form extends React.Component<Props, States> {
         if (this.checkForm()) {
             const params = {
                 to_name: 'Benedict',
-                from_name: `${this.state.form.firstName.value} ${this.state.form.lastName.value}`,
+                from_name: `${this.state.form.firstName.value.trim()} ${this.state.form.lastName.value.trim()}`,
                 message: `
-                    Vorname: ${this.state.form.firstName.value}
-                    Nachname: ${this.state.form.lastName.value}
-                    Geburtsdatum: ${this.state.form.dateOfBirth.value}
-                    Datum der Anreise: ${this.state.form.dateOfArrival.value}
-                    Datum der Abreise: ${this.state.form.dateOfDepature.value}
-                    Staatsangehögkeit: ${this.state.form.nationality.value}
-                    Strasse: ${this.state.form.addressStreet.value}
-                    Hausnummer: ${this.state.form.addressHouseNumber.value}
-                    Postleitzahl: ${this.state.form.addressPostCode.value}
-                    Stadt: ${this.state.form.addressCity.value}
-                    Land: ${this.state.form.addressCountry.value}
-                    Ausweisnummer: ${this.state.form.passportNumber.value}
-                    Anzahl der Gäste: ${this.state.form.numberOfGuests.value}
-                    Telefonnummer: ${this.state.form.guestPhone.value ? this.state.form.guestPhone.value : 'keine Angabe'}
-                    E-Mail: ${this.state.form.guestEmail.value ? this.state.form.guestEmail.value : 'keine Angabe'}
+                    <strong>Vorname:</strong> ${this.state.form.firstName.value.trim()}
+                    <strong>Nachname:</strong> ${this.state.form.lastName.value.trim()}
+                    <strong>Geburtsdatum:</strong> ${this.state.form.dateOfBirth.value.trim()}
+                    <strong>Datum der Anreise:</strong> ${this.state.form.dateOfArrival.value.trim()}
+                    <strong>Datum der Abreise:</strong> ${this.state.form.dateOfDepature.value.trim()}
+                    <strong>Staatsangehögkeit:</strong> ${this.state.form.nationality.value.trim()}
+                    <strong>Strasse:</strong> ${this.state.form.addressStreet.value.trim()}
+                    <strong>Hausnummer:</strong> ${this.state.form.addressHouseNumber.value.trim()}
+                    <strong>Postleitzahl:</strong> ${this.state.form.addressPostCode.value.trim()}
+                    <strong>Stadt:</strong> ${this.state.form.addressCity.value.trim()}
+                    <strong>Land:</strong> ${this.state.form.addressCountry.value.trim()}
+                    <strong>Ausweisnummer:</strong> ${this.state.form.passportNumber.value.trim()}
+                    <strong>Anzahl der Gäste:</strong> ${this.state.form.numberOfGuests.value.trim()}
+                    <strong>Telefonnummer:</strong> ${this.state.form.guestPhone.value ? this.state.form.guestPhone.value.trim() : 'keine Angabe'}
+                    <strong>E-Mail:</strong> ${this.state.form.guestEmail.value ? this.state.form.guestEmail.value.trim() : 'keine Angabe'}
                 `.trim()
             }
             emailjs.send('service_p34hlgj', 'template_5ngkmwb', params)
@@ -371,6 +375,131 @@ export default class Form extends React.Component<Props, States> {
                         </label>
                     );
                 })}
+                <div id='information'>
+                    {this.props.language === 'de' && (
+                        <>
+                            <span className='title'>Allgemein</span>
+                            <span className='text'>
+                                Rechtsgrundlage für die Erhebung der erfragten Daten sowie die Vorlage eines gültigen Identitätsdokuments
+                                für ausländische Gäste ist das <a href='https://www.gesetze-im-internet.de/bmg/'>Bundesmeldegesetz</a> und das <a href='https://dsgvo-gesetz.de/bdsg/'>Bundesdatenschutzgesetz</a>.
+                                <br/><br/>
+                                Wer diesen Meldepflichten nicht nachkommt, handelt ordnungswidrig. Die Ordnungswidrigkeit kann mit einer Geldbuße geahndet werden.
+                                Der Schutz und die Sicherheit von persönlichen Daten hat bei uns eine hohe Priorität. Daher halten wir uns strikt an die Regeln des deutschen Bundesdatenschutzgesetzes.
+                                Nachfolgend werden Sie darüber informiert, welche Art von Daten erfasst und zu welchem Zweck sie erhoben, übermittelt und genutzt werden.
+                                <br /><br/>
+                                Die Angabe der Daten ist freiwillig. Wenn Sie mit der Angabe Ihrer Daten in diesem Formular nicht einverstanden sind, verlassen Sie diese Seite.
+                                Die Erhebung der Daten wird dann vor Ort beim Check-In erfolgen. Ansonsten bestätigen Sie mit dem unteren Button Ihr Einverständnis mit der Datenübermittlung.
+                                <br /><br/>
+                                Ihre Daten werden nur zum Zweck der Übertragung von Meldedaten an die Beherbungsstätte benutzt. Weitergabe der Daten an andere,
+                                wie z.B. für Werbung, Markt- oder Meinungsforschungsunternehmen, findet nicht statt.
+                            </span>
+                            <span className='title'>Informationen über die Beherbergungsstätte</span>
+                            <span className='text'>
+                                Benedict Belz
+                                <br/>
+                                Senefelderstr. 15
+                                <br/>
+                                10437 Berlin
+                                <br/>
+                                <a href='mailto:info@benedictbelz.eu'>booking@benedictbelz.eu</a> 
+                            </span>
+                            <span className='title'>Einwilligungserklärung der Datenspeicherung nach Bundesdatenschutzgesetz</span>
+                            <span className='text'>
+                                Persönliche Daten werden nur erhoben oder verarbeitet, wenn Sie diese Angaben freiwillig mitteilen. Sie können jederzeit die zuvor erteilte Genehmigung
+                                Ihrer persönlichen Datenspeicherung mit sofortiger Wirkung schriftlich, z.B. per E-Mail, an obenstehende Adresse widerrufen. Ihre Daten werden nicht an Dritte weitergeben,
+                                es sei denn, eine Weitergabe ist aufgrund gesetzlicher Vorschriften erforderlich.
+                                <br /><br/>
+                                Gemäß geltendem Recht können Sie jederzeit bei uns schriftlich nachfragen, ob und welche personenbezogenen Daten bei uns über Sie gespeichert sind.
+                                Eine entsprechende Mitteilung hierzu erhalten Sie umgehend.
+                                <br /><br/>
+                                Ihre uns zur Verfügung gestellten persönlichen Daten werden durch Ergreifung aller technischen sowie organisatorischen Sicherheitsmaßnahmen so gesichert,
+                                dass sie für den Zugriff unberechtigter Dritter unzugänglich sind.
+                            </span>
+                        </>
+                    )}
+                    {this.props.language === 'en' && (
+                        <>
+                            <span className='title'>General information</span>
+                            <span className='text'>
+                                The legal basis for the collection of the requested data as well as the presentation of a valid identity document for foreign guests
+                                is the <a href='https://www.gesetze-im-internet.de/bmg/'>Federal Registration Law</a> and the <a href='https://dsgvo-gesetz.de/bdsg/'>Federal Data Protection Act</a>.
+                                <br/><br/>
+                                Anyone who fails to comply with these reporting obligations is unlawful. The administrative offense can be punished with a fine.
+                                The protection and security of personal data is a high priority for us. We therefore adhere strictly to the rules of the German Federal Data Protection Act.
+                                In the following, you will be informed about the type of data collected and the purpose for which they are collected, transmitted and used.
+                                <br /><br/>
+                                Providing the data is voluntary. If you do not agree to this, please leave this page.
+                                The data will be collected on your arrival at check-in. Otherwise, you agree to the data transmission by clicking on the button below.
+                                <br /><br/>
+                                Your data will only be used for the purpose of transferring registration data to the accommodation facility.
+                                The data will not be passed on to others, e.g. for advertising, marketing or opinion research companies.
+                            </span>
+                            <span className='title'>Information about the accommodation</span>
+                            <span className='text'>
+                                Benedict Belz
+                                <br/>
+                                Senefelderstr. 15
+                                <br/>
+                                10437 Berlin
+                                <br/>
+                                <a href='mailto:info@benedictbelz.eu'>booking@benedictbelz.eu</a> 
+                            </span>
+                            <span className='title'>Declaration of consent for data storage in accordance with the Federal Data Protection Act</span>
+                            <span className='text'>
+                                Personal data will only be collected or processed if you provide this information voluntarily. You may at any time revoke the prior approval
+                                of your personal data storage by writing an e-mail to the above address. Your data will not be passed on to third parties,
+                                unless a transfer is required by law.
+                                <br /><br/>
+                                In accordance with applicable law, you can ask us in writing at any time whether and what personal data we have stored about you.
+                                You will receive a corresponding notification immediately.
+                                <br /><br/>
+                                Your personal data provided to us will be secured by taking all technical and organizational security measures so that
+                                they are inaccessible to unauthorized third parties.
+                            </span>
+                        </>
+                    )}
+                    {this.props.language === 'es' && (
+                        <>
+                            <span className='title'>Información general</span>
+                            <span className='text'>
+                                La base jurídica para la recogida de los datos solicitados y la presentación de un documento de identidad válido para los huéspedes
+                                extranjeros es la <a href='https://www.gesetze-im-internet.de/bmg/'>Ley Federal de Registro</a> y la <a href='https://dsgvo-gesetz.de/bdsg/'>Ley Federal de Protección de Datos</a>.
+                                <br/><br/>
+                                Quien incumple estas obligaciones de notificación está cometiendo una infracción administrativa. La infracción puede castigarse con una multa.
+                                La protección y seguridad de los datos personales es una prioridad para nosotros. Por ello, cumplimos estrictamente las normas de la Ley Federal Alemana de Protección de Datos.
+                                A continuación encontrará información sobre qué tipo de datos se recopilan y con qué fin se recogen, transmiten y utilizan.
+                                <br /><br/>
+                                El suministro de datos es voluntario. Si no está de acuerdo con el suministro de sus datos en este formulario, le rogamos que abandone esta página.
+                                Los datos se recogerán in situ en el momento del registro. De lo contrario, haga clic en el botón de abajo para confirmar su consentimiento a la transferencia de datos.
+                                <br /><br/>
+                                Sus datos sólo se utilizarán para transmitir los datos de inscripción al centro de alojamiento.
+                                Los datos no se transmitirán a terceros,por ejemplo, a empresas de publicidad, estudios de mercado o de opinión.
+                            </span>
+                            <span className='title'>Información sobre el alojamiento</span>
+                            <span className='text'>
+                                Benedict Belz
+                                <br/>
+                                Senefelderstr. 15
+                                <br/>
+                                10437 Berlin
+                                <br/>
+                                <a href='mailto:info@benedictbelz.eu'>booking@benedictbelz.eu</a> 
+                            </span>
+                            <span className='title'>Declaración de consentimiento para el almacenamiento de datos de conformidad con la Ley Federal de Protección de Datos</span>
+                            <span className='text'>
+                                Los datos personales sólo se recogerán o tratarán si usted los facilita voluntariamente. Puede revocar la autorización previamente concedida
+                                de almacenamiento de sus datos personales con efecto inmediato por escrito, por ejemplo por correo electrónico, a la dirección arriba indicada.
+                                Sus datos no se transmitirán a terceros salvo que la ley exija su divulgación.
+                                <br /><br/>
+                                De conformidad con la legislación aplicable, puede preguntarnos por escrito en cualquier momento si tenemos datos personales almacenados sobre usted y cuáles son.
+                                Recibirá inmediatamente la notificación correspondiente.
+                                <br /><br/>
+                                Los datos personales que nos facilite estarán protegidos mediante la adopción de todas las medidas de seguridad técnicas y organizativas necesarias para
+                                garantizar que sean inaccesibles a terceros no autorizados, que sean inaccesibles a terceros no autorizados.
+                            </span>
+                        </>
+                    )}
+                </div>
                 <button onClick={(event) => this.onSend(event)} className={this.state.status === 'Loading' ? 'loading' : ''}>
                     {this.state.status === 'Input' && (
                         <>
