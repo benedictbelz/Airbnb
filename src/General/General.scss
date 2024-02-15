@@ -48,40 +48,58 @@ a {
     width: 100%;
 }
 
-.uppercase {
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-size: $font-size-s;
-    font-weight: $font-weight-regular;
-}
-
-#main.desktop .underline {
+button {
     cursor: pointer;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-s * 2;
+    box-sizing: border-box;
+    height: $spacing-l;
+    border: none;
+    border-radius: $border-radius-m;
+    padding: 0 $spacing-s * 2;
+    font-size: $font-size-m;
+    font-family: 'Web', sans-serif;
+    color: $color-white;
+    background-color: $color-black;
+    box-shadow: 0 0 $box-shadow-blur $box-shadow-spread $color-black-shadow;
+    transition: transform $transition-s ease;
 
-    &:hover::after {
-        transform: scaleX(1);
+    &:hover {
+        transform: scale(1.025);
     }
 
-    &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -$border-underline;
-        height: $border-underline;
-        width: 100%;
-        background-color: $color-black;
-        transform-origin: left;
-        transition: transform $transition-s ease;
-        transform: scaleX(0);
-        border-radius: $border-radius-s;
-    }
+    &.loading {
+        * {
+            display: none;
+            visibility: hidden;
+        }
 
-    &.black::after {
-        background-color: $color-black;
-    }
+        &::after {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            height: $spacing-m;
+            width: $spacing-m;
+            border-radius: 50%;
+            animation-name: circle;
+            animation-duration: $transition-l;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            border-top: $border-circle solid $color-white;
+            border-right: $border-circle solid $color-white;
+            border-bottom: $border-circle solid $color-white;
+            border-left: $border-circle solid transparent;
 
-    &.white::after {
-        background-color: $color-white;
+            @keyframes circle {
+                0% {
+                    transform: rotateZ(0deg);
+                }
+                100% {
+                    transform: rotateZ(360deg);
+                }
+            }
+        }
     }
 }

@@ -10,42 +10,104 @@ body {
         height: 100%;
         width: 100%;
 
-        &.desktop {
-            #form {
-                position: absolute;
-                height: 100%;
-                width: 100%;
-            }
-    
-            #form > .content {
-                overflow-y: auto;
-                height: 100%;
-                width: 100%;
-            }
-        }
-    
-        &.mobile {
-            #form {
-                position: absolute;
-                overflow-y: auto;
-                height: 100%;
-                width: 100%;
-            }
-        }
-
-        .content {
+        #airbnb {
             box-sizing: border-box;
-            padding: $spacing-l;
-        }
+            padding: 0 $spacing-l;
+            max-width: 600px;
+            height: 100%;
+            margin: auto;
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            #logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: $spacing-l;
+                margin-bottom: $spacing-l;
+                height: 250px;
+                width: 100%;
+    
+                img {
+                    height: 100%;
+                }
+            }
+    
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: row;
+                margin-bottom: $spacing-l;
+    
+                > p {
+                    font-size: $font-size-xl;
+                }
+            }
 
-            > p {
-                font-size: $font-size-xl;
+            #error {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 99999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
+                gap: $spacing-m;
+                font-size: $font-size-l;
+                background-color: $color-white;
+
+                button {
+                    width: 200px;
+                }
+            }
+
+            #success {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 99999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
+                gap: $spacing-m;
+                font-size: $font-size-l;
+                background-image: url('assets/gif/email.gif');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: $color-white;
+
+                span {
+                    color: $color-white;
+                    mix-blend-mode: difference;
+                    white-space: pre-wrap;
+                    text-align: center;
+                    line-height: 1.5;
+                }
             }
         }
-    }    
+    }
+    
+    @media (max-width: 600px) {
+        #airbnb {
+            header {
+                flex-direction: column-reverse !important;
+                gap: $spacing-l;
+                width: 100%;
+    
+                #preference {
+                    width: 100%;
+                }
+            }
+
+            form {
+                max-width: 100%;
+            }
+        }
+    }
 }

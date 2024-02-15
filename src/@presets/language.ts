@@ -15,13 +15,15 @@ const de: Dictionary = {
     inputAddressStreet: 'Strasse',
     inputAddressHouseNumber: 'Hausnummer',
     inputAddressPostCode: 'Postleitzahl',
-    inputAddressCity: 'Ort',
+    inputAddressCity: 'Stadt',
     inputAddressCountry: 'Land',
     inputPassportNumber: 'Ausweisnummer',
-    inputNumberOfGuests: 'Anzahl der Mitreisenden',
+    inputNumberOfGuests: 'Anzahl der Gäste',
     inputGuestPhone: 'Telefonnummer',
     inputGuestEmail: 'E-Mail',
-    inputSubmit: 'Absenden',
+    inputSend: 'Absenden',
+    inputIncomplete: 'Unvollständiges Formular...',
+    warningCorrectCountry: 'Bitte ein korrektes Land angeben',
     warningCorrectDate: 'Bitte ein korrektes Datum eingeben',
     warningCorrectEmail: 'Bitte eine korrekte E-Mail eingeben',
     warningCorrectHouseNumber: 'Bitte eine korrekte Hausnummer eingeben',
@@ -30,6 +32,9 @@ const de: Dictionary = {
     warningCorrectPostCode: 'Bitte eine korrekte Postleitzahl eingeben',
     warningOnlyAlphabets: 'Bitte nur Buchstaben eingeben',
     warningOnlyNumbers: 'Bitte nur Zahlen eingeben',
+    errorInfo: 'Leider ist etwas schiefgelaufen...',
+    errorRetry: 'Wiederholen',
+    successInfo: 'Die Meldebescheinigung wurde versendet.\nVielen Dank und wir freuen uns dich\nbald willkommen zu heißen!',
 }
 
 const en: Dictionary = {
@@ -52,7 +57,9 @@ const en: Dictionary = {
     inputNumberOfGuests: 'Number of Travelers',
     inputGuestPhone: 'Phone Number',
     inputGuestEmail: 'E-Mail',
-    inputSubmit: 'Submit',
+    inputSend: 'Submit',
+    inputIncomplete: 'Incomplete Form...',
+    warningCorrectCountry: 'Please enter a correct country',
     warningCorrectDate: 'Please enter a correct date',
     warningCorrectEmail: 'Please enter a correct e-mail',
     warningCorrectHouseNumber: 'Please enter a correct house number',
@@ -61,6 +68,9 @@ const en: Dictionary = {
     warningCorrectPostCode: 'Please enter a correct post code',
     warningOnlyAlphabets: 'Please enter alphabets only',
     warningOnlyNumbers: 'Please enter numbers only',
+    errorInfo: 'Unfortunately, something went wrong...',
+    errorRetry: 'Retry',
+    successInfo: 'The registration form has been sent.\nThank you very much and we look forward\nto welcome you soon!',
 }
 
 const es: Dictionary = {
@@ -83,7 +93,9 @@ const es: Dictionary = {
     inputNumberOfGuests: 'Número de Viajeros',
     inputGuestPhone: 'Número de Teléfono ',
     inputGuestEmail: 'Correo Electrónico',
-    inputSubmit: 'Envío',
+    inputSend: 'Envío',
+    inputIncomplete: 'Formulario Incompleto...',
+    warningCorrectCountry: 'Por favor, introduzca un país correcto',
     warningCorrectDate: 'Por favor, introduzca una fecha correcta',
     warningCorrectEmail: 'Por favor, introduzca un correo electrónico correcto',
     warningCorrectHouseNumber: 'Por favor, introduzca un número de casa correcto',
@@ -92,6 +104,9 @@ const es: Dictionary = {
     warningCorrectPostCode: 'Por favor, introduzca un código postal correcto',
     warningOnlyAlphabets: 'Por favor, introduzca sólo letras',
     warningOnlyNumbers: 'Por favor, introduzca sólo números',
+    errorInfo: 'Por desgracia, algo salió mal...',
+    errorRetry: 'Reintentar',
+    successInfo: 'Se ha enviado el formulario de inscripción.\nMuchas gracias y esperamos recibirle pronto!',
 }
 
 export const getLanguage = (language: Language, key: keyof Dictionary) => {

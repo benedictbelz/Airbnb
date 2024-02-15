@@ -1,7 +1,7 @@
 @import '../../General/Variables.scss';
 
 #main.desktop {
-    .scrollbar {
+    .scrollBar {
         pointer-events: none;
         position: fixed;
         top: 0;
@@ -27,16 +27,34 @@
         }
     }
     
-    #form>.content {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+    .scrollWrapper {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+        > .scrollContent {
+            height: 100%;
+            width: 100%;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
     }
     
     html::-webkit-scrollbar,
-    #form>.content::-webkit-scrollbar {
+    .scrollWrapper > .scrollContent::-webkit-scrollbar {
         display: none;
         background-color: transparent;
         height: 0;
         width: 0;
+    }
+}
+
+#main.mobile {
+    .scrollWrapper {
+        position: absolute;
+        overflow-y: auto;
+        height: 100%;
+        width: 100%;
     }
 }

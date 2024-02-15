@@ -32,7 +32,7 @@ export default class Scrollbar extends React.Component<Props, States> {
             return;
         }
         // GET ELEMENT
-        const element = document.querySelector('#' + this.props.id + '>.content') as unknown as HTMLElement;
+        const element = document.querySelector('.scrollWrapper > .scrollContent') as unknown as HTMLElement;
         // SET ELEMENT
         this.setState({ element });
         // EVENT LISTENER SCROLL
@@ -59,19 +59,25 @@ export default class Scrollbar extends React.Component<Props, States> {
 
 	render() {
 		return (
-            <div id={this.props.id}>
-                {this.props.currentDevice === 'Mobile' && this.props.children}
+            <div className='scrollWrapper'>
+                {this.props.currentDevice === 'Mobile' && 
+                    <div id={this.props.id}>
+                        {this.props.children}
+                    </div>
+                }
                 {this.props.currentDevice === 'Desktop' &&
                     <>
                         <div className={[
-                            'scrollbar',
+                            'scrollBar',
                             this.state.element ? this.state.element.id : '',
                             this.props.color === 'Black' ? 'black' : 'white'
                         ].filter((x) => x).join(' ')}>
                             <div style={ { transform: 'scaleY(' + this.state.scroll + ')' } }/>
                         </div>
-                        <div className='content'>
-                            {this.props.children}
+                        <div className='scrollContent'>
+                            <div id={this.props.id}>
+                                {this.props.children}
+                            </div>
                         </div>
                     </>
                 }

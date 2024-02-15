@@ -18,6 +18,7 @@ interface States {
 	isLoading: boolean;
     isRendered: boolean;
     percentage: number;
+	status: 'Error' | 'Success' | 'Validation';
 }
 
 class Main extends React.Component<{}, States> {
@@ -28,7 +29,8 @@ class Main extends React.Component<{}, States> {
 		language: 'en',
 		isLoading: true,
         isRendered: false,
-        percentage: 0
+        percentage: 0,
+		status: 'Validation'
 	}
 
 	componentDidMount() {
@@ -96,9 +98,13 @@ class Main extends React.Component<{}, States> {
         this.setState({ isLoading: false, percentage: 100 });
 	}
 
-	handleSubmit(values: any) {
-		console.log(values);
-	};
+	handleError() {
+		this.setState({ status: 'Error' });
+	}
+
+	handleSuccess() {
+		this.setState({ status: 'Success' });
+	}
 
 	render() {
 		return (
@@ -109,7 +115,23 @@ class Main extends React.Component<{}, States> {
 				].filter(x => x).join(' ')}
 			>
 				<Loader color='White' isLoading={this.state.isLoading} percentage={this.state.percentage}/>
-				<Scrollbar color='Black' currentDevice={this.state.currentDevice} id='form'>
+				<Scrollbar color='Black' currentDevice={this.state.currentDevice} id='airbnb'>
+					{this.state.status === 'Error' && (
+						<div id='error'>
+							<span>{getLanguage(this.state.language, 'errorInfo')}</span>
+							<button onClick={() => this.setState({ status: 'Validation' })}>
+								<span>{getLanguage(this.state.language, 'errorRetry')}</span>
+							</button>
+						</div>
+					)}
+					{this.state.status === 'Success' && (
+						<div id='success'>
+							<span>{getLanguage(this.state.language, 'successInfo')}</span>
+						</div>
+					)}
+					<div id='logo'>
+						<img src='assets/logo/logo.png'/>
+					</div>
 					<header>
 						<p>{getLanguage(this.state.language, 'title')}</p>
 						<Preference
@@ -117,7 +139,11 @@ class Main extends React.Component<{}, States> {
 							changeLanguage={(language: Language) => this.setState({ language })}
 						/>
 					</header>
-					<Form language={this.state.language}/>
+					<Form
+						handleError={() => this.handleError()}
+						handleSuccess={() => this.handleSuccess()}
+						language={this.state.language}
+					/>
 				</Scrollbar>
 			</div>
 		);

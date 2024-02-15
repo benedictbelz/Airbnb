@@ -1,6 +1,135 @@
+@import '../../General/Variables.scss';
+
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: $spacing-m * 1.5;
+    max-width: 100%;
+    padding-bottom: $spacing-l;
+
+    label {
+        position: relative;
+        width: 100%;
+
+        .description {
+            position: absolute;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: $spacing-xs / 2;
+            font-size: $font-size-s;
+            top: calc(-1 * $font-size-s / 2);
+            left: $spacing-s;
+            background-color: $color-white;
+            padding: 0 $spacing-xs * 1.5;
+            color: $color-black;
+        }
+
+        input,
+        select {
+            box-sizing: border-box;
+            width: 100%;
+            height: $spacing-l;
+            border: 1px solid $color-black;
+            border-radius: $border-radius-s;
+            padding: 0 $spacing-s * 2;
+            font-size: $font-size-xs;
+            font-family: 'Web', sans-serif;
+            color: $color-black-input;
+            background-image: none;
+            background-color: transparent;
+            box-shadow: none;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        select {
+            appearance: none;
+            line-height: inherit;
+        }
+
+        .warning {
+            position: absolute;
+            left: $spacing-s;
+            top: calc(-1 * $font-size-s * 0.75 + 100%);
+            font-size: $font-size-s;
+            color: $color-red;
+            padding: 0 $spacing-s;
+            width: max-content;
+            background-color: $color-white;
+        }
+
+        &:has(select)::after {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            right: $spacing-s * 2;
+            width: 0; 
+            height: 0; 
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 4px solid $color-black;
+            margin-left: auto;
+            transform: rotate(180deg);
+        }
+
+        &:not(.required) {
+            input,
+            select {
+                border: 1px solid $color-black-shadow;
+            }
+        }
+
+        &.hasValue {
+            input,
+            select {
+                border: 1px solid $color-green;
+            }
+        }
+
+        &.hasWarning {
+            input,
+            select {
+                border: 1px solid $color-red;
+            }
+        }
+    }
+
+    button {
+        position: relative;
+        width: 100%;
+
+        svg {
+            height: 25px;
+            width: 25px;
+
+            g {
+                stroke: none;
+                stroke-width: 0; 
+                stroke-dasharray: none;
+                stroke-linejoin: miter;
+                stroke-miterlimit: 10;
+                fill: none;
+                fill-rule: nonzero;
+                opacity: 1;
+
+                path {
+                    stroke: none;
+                    stroke-width: 1;
+                    stroke-dasharray: none;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 10;
+                    fill: $color-white;
+                    fill-rule: nonzero;
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }

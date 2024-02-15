@@ -7,15 +7,10 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.5.tgz#9283c9ce5b289a3c4f61c12757469e59377f81f3"
   integrity sha512-6nFkfkmSeV/rqSaS4oWHgmpnYw194f6hmWF5is6b0J1naJZoiD0NTc9AiUwPHvWsowkjuHErCZT1wa0jg+BLIA==
 
-"@formiz/core@^2.2.3":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@formiz/core/-/core-2.2.3.tgz#8188720633d98b3ffcfa376de80e3da81905c88d"
-  integrity sha512-PUM3MCRPTdbUTXeIN4OD+39NgniT/ogCPLj7qO93a8UNYD0OVkNZIdYz7Aj54qFA93BenADkaZeY5Oa0m0fJiA==
-
-"@formiz/validations@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@formiz/validations/-/validations-2.0.1.tgz#268afba7c5f2bf712ede3742874ac8c93c863724"
-  integrity sha512-NZGluw3iWt7zw3oTiOwnttg7DCgB1SR0AMWVpdTYsaXDS54HwukwteaUqxii/FeGNliuRLYxtawnhMwa8YIhyA==
+"@emailjs/browser@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@emailjs/browser/-/browser-4.1.0.tgz#141225969a2abfa1ec6e6f3240b3637a78cace16"
+  integrity sha512-AWLTmFli2NIKjBXs4Fql1B5z8i3W2r+CKCaxp0DdcFzcIQxrCS2TzmqJtIiPZKh9FpZgqueQTivBx6QOxaz89Q==
 
 "@jridgewell/gen-mapping@^0.3.0":
   version "0.3.3"

@@ -22,7 +22,9 @@ export type Dictionary = {
     inputNumberOfGuests: string;
     inputGuestPhone: string;
     inputGuestEmail: string;
-    inputSubmit: string;
+    inputSend: string;
+    inputIncomplete: string;
+    warningCorrectCountry: string;
     warningCorrectDate: string;
     warningCorrectEmail: string;
     warningCorrectHouseNumber: string;
@@ -31,4 +33,7 @@ export type Dictionary = {
     warningCorrectPostCode: string;
     warningOnlyAlphabets: string;
     warningOnlyNumbers: string;
+    errorInfo: string;
+    errorRetry: string;
+    successInfo: string;
 }
