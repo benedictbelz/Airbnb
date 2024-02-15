@@ -5,7 +5,7 @@ const de: Dictionary = {
     language_de: 'Deutsch',
     language_en: 'Englisch',
     language_es: 'Spanisch',
-    title: 'Meldebescheinigung',
+    title: 'Meldeschein',
     inputFirstName: 'Vorname',
     inputLastName: 'Nachname',
     inputDateOfBirth: 'Geburtsdatum',
