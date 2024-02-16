@@ -390,7 +390,7 @@ export default class Form extends React.Component<Props, States> {
                             <span className='title'>Allgemein</span>
                             <span className='text'>
                                 Rechtsgrundlage für die Erhebung der erfragten Daten sowie die Vorlage eines gültigen Identitätsdokuments
-                                für ausländische Gäste ist das <a href='https://www.gesetze-im-internet.de/bmg/'>Bundesmeldegesetz</a> und das <a href='https://dsgvo-gesetz.de/bdsg/'>Bundesdatenschutzgesetz</a>.
+                                für ausländische Gäste ist das <a href='https://www.gesetze-im-internet.de/bmg/' target='_blank' rel='noopener noreferrer'>Bundesmeldegesetz</a> und das <a href='https://dsgvo-gesetz.de/bdsg/' target='_blank' rel='noopener noreferrer'>Bundesdatenschutzgesetz</a>.
                                 <br/><br/>
                                 Wer diesen Meldepflichten nicht nachkommt, handelt ordnungswidrig. Die Ordnungswidrigkeit kann mit einer Geldbuße geahndet werden.
                                 Der Schutz und die Sicherheit von persönlichen Daten hat bei uns eine hohe Priorität. Daher halten wir uns strikt an die Regeln des deutschen Bundesdatenschutzgesetzes.
@@ -431,7 +431,7 @@ export default class Form extends React.Component<Props, States> {
                             <span className='title'>General information</span>
                             <span className='text'>
                                 The legal basis for the collection of the requested data as well as the presentation of a valid identity document for foreign guests
-                                is the <a href='https://www.gesetze-im-internet.de/bmg/'>Federal Registration Law</a> and the <a href='https://dsgvo-gesetz.de/bdsg/'>Federal Data Protection Act</a>.
+                                is the <a href='https://www.gesetze-im-internet.de/bmg/' target='_blank' rel='noopener noreferrer'>Federal Registration Law</a> and the <a href='https://dsgvo-gesetz.de/bdsg/' target='_blank' rel='noopener noreferrer'>Federal Data Protection Act</a>.
                                 <br/><br/>
                                 Anyone who fails to comply with these reporting obligations is unlawful. The administrative offense can be punished with a fine.
                                 The protection and security of personal data is a high priority for us. We therefore adhere strictly to the rules of the German Federal Data Protection Act.
@@ -472,7 +472,7 @@ export default class Form extends React.Component<Props, States> {
                             <span className='title'>Información general</span>
                             <span className='text'>
                                 La base jurídica para la recogida de los datos solicitados y la presentación de un documento de identidad válido para los huéspedes
-                                extranjeros es la <a href='https://www.gesetze-im-internet.de/bmg/'>Ley Federal de Registro</a> y la <a href='https://dsgvo-gesetz.de/bdsg/'>Ley Federal de Protección de Datos</a>.
+                                extranjeros es la <a href='https://www.gesetze-im-internet.de/bmg/' target='_blank' rel='noopener noreferrer'>Ley Federal de Registro</a> y la <a href='https://dsgvo-gesetz.de/bdsg/' target='_blank' rel='noopener noreferrer'>Ley Federal de Protección de Datos</a>.
                                 <br/><br/>
                                 Quien incumple estas obligaciones de notificación está cometiendo una infracción administrativa. La infracción puede castigarse con una multa.
                                 La protección y seguridad de los datos personales es una prioridad para nosotros. Por ello, cumplimos estrictamente las normas de la Ley Federal Alemana de Protección de Datos.
