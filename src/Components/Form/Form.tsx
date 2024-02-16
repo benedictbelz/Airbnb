@@ -410,7 +410,7 @@ export default class Form extends React.Component<Props, States> {
                                 <br/>
                                 10437 Berlin
                                 <br/>
-                                <a href='mailto:info@benedictbelz.eu'>booking@benedictbelz.eu</a> 
+                                <a href='mailto:airbnb@benedictbelz.eu'>airbnb@benedictbelz.eu</a> 
                             </span>
                             <span className='title'>Einwilligungserklärung der Datenspeicherung nach Bundesdatenschutzgesetz</span>
                             <span className='text'>
@@ -451,7 +451,7 @@ export default class Form extends React.Component<Props, States> {
                                 <br/>
                                 10437 Berlin
                                 <br/>
-                                <a href='mailto:info@benedictbelz.eu'>booking@benedictbelz.eu</a> 
+                                <a href='mailto:airbnb@benedictbelz.eu'>airbnb@benedictbelz.eu</a> 
                             </span>
                             <span className='title'>Declaration of consent for data storage in accordance with the Federal Data Protection Act</span>
                             <span className='text'>
@@ -492,7 +492,7 @@ export default class Form extends React.Component<Props, States> {
                                 <br/>
                                 10437 Berlin
                                 <br/>
-                                <a href='mailto:info@benedictbelz.eu'>booking@benedictbelz.eu</a> 
+                                <a href='mailto:airbnb@benedictbelz.eu'>airbnb@benedictbelz.eu</a> 
                             </span>
                             <span className='title'>Declaración de consentimiento para el almacenamiento de datos de conformidad con la Ley Federal de Protección de Datos</span>
                             <span className='text'>
