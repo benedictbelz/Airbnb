@@ -24,6 +24,7 @@ export type Dictionary = {
     inputGuestEmail: string;
     inputSend: string;
     inputIncomplete: string;
+    warningCorrectCity: string;
     warningCorrectCountry: string;
     warningCorrectDate: string;
     warningCorrectEmail: string;

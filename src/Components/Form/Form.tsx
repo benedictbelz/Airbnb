@@ -41,7 +41,7 @@ interface Field {
     value: string;
 }
 
-type Validation = 'isAlphabet' | 'isCountry' | 'isDate' | 'isEmail' | 'isHouseNumber' | 'isNumber' | 'isPassPort' | 'isPhoneNumber' | 'isPostCode' | 'isStreet';
+type Validation = 'isAlphabet' | 'isCity' | 'isCountry' | 'isDate' | 'isEmail' | 'isHouseNumber' | 'isNumber' | 'isPassPort' | 'isPhoneNumber' | 'isPostCode' | 'isStreet';
 
 export default class Form extends React.Component<Props, States> {
 
@@ -124,7 +124,7 @@ export default class Form extends React.Component<Props, States> {
                 required: true,
                 showWarning: false,
                 type: 'text',
-                validation: 'isAlphabet',
+                validation: 'isCity',
                 value: '',
             },
             addressCountry: {
@@ -215,6 +215,8 @@ export default class Form extends React.Component<Props, States> {
             return true;
         } else if (method === 'isAlphabet') {
             return (/^[\p{L}\p{M}|-]+$/u).test(value);
+        } else if (method === 'isCity') {
+            return (/^[\p{L}\p{M}|-]+[\p{L}\p{M}|-|\s]+$/u).test(value);
         } else if (method === 'isCountry') {
             return value !== '';
         } else if (method === 'isDate') {
@@ -241,6 +243,8 @@ export default class Form extends React.Component<Props, States> {
     getWarningMessage(method: Validation) {
         if (method === 'isAlphabet') {
             return getLanguage(this.props.language, 'warningOnlyAlphabets');
+        } else if (method === 'isCity') {
+            return getLanguage(this.props.language, 'warningCorrectCity');
         } else if (method === 'isCountry') {
             return getLanguage(this.props.language, 'warningCorrectCountry');
         } else if (method === 'isDate') {
